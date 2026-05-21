@@ -14,9 +14,10 @@ background:#e9edf5;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
-overflow:hidden;
+min-height:100vh;
+overflow:auto;
 transition:.3s;
+padding:20px;
 }
 
 /* =========================
@@ -31,6 +32,7 @@ border-radius:35px;
 overflow:hidden;
 position:relative;
 box-shadow:0 20px 45px rgba(0,0,0,.15);
+transition:.3s;
 }
 
 /* =========================
@@ -101,16 +103,22 @@ margin-top:10px;
 }
 
 .avatar{
-width:65px;
-height:65px;
-background:white;
+width:70px;
+height:70px;
 border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:28px;
-color:#0078ff;
+overflow:hidden;
+border:3px solid white;
+background:white;
+flex-shrink:0;
 }
+
+.avatar img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
 
 .big-title{
 margin-top:20px;
@@ -251,6 +259,11 @@ border-radius:14px;
 font-size:16px;
 cursor:pointer;
 margin-top:15px;
+transition:.3s;
+}
+
+.audio-btn:hover{
+transform:scale(1.03);
 }
 
 /* =========================
@@ -400,7 +413,7 @@ color:#0078ff;
 DARK MODE
 ========================= */
 
-.dark body{
+.dark{
 background:#111;
 }
 
@@ -431,4 +444,82 @@ background:#222;
 
 .dark .setting{
 border-color:#333;
+}
+
+/* =========================
+RESPONSIVIDADE
+========================= */
+
+@media(max-width:1200px){
+
+.phone{
+width:90%;
+height:95vh;
+}
+
+}
+
+@media(max-width:768px){
+
+body{
+padding:0;
+}
+
+.phone{
+width:100%;
+height:100vh;
+border-radius:0;
+}
+
+.big-title h1{
+font-size:34px;
+line-height:36px;
+}
+
+.lesson-big{
+font-size:42px;
+}
+
+}
+
+@media(max-width:480px){
+
+.header{
+padding:18px;
+}
+
+.big-title h1{
+font-size:28px;
+line-height:30px;
+}
+
+.card{
+padding:15px;
+}
+
+.card i{
+width:50px;
+height:50px;
+font-size:24px;
+}
+
+.card h3{
+font-size:18px;
+}
+
+.option{
+font-size:18px;
+padding:12px;
+}
+
+.lesson-big{
+font-size:34px;
+}
+
+.audio-btn{
+width:100%;
+font-size:18px;
+padding:16px;
+}
+
 }
