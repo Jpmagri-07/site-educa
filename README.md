@@ -80,7 +80,7 @@ Projeto desenvolvido em grupo como atividade escolar.
 ## 📷 Preview do Projeto
 
 <p align="center">
-  <img src="imgs/imagem.png" alt="Preview do Ensina Fácil" width="100%">
+  <img src="imgs/pre-vizu.png" alt="Preview do Ensina Fácil" width="100%">
 </p>
 
 ---
