@@ -1,0 +1,745 @@
+<!--
+========================================
+APP EDUCAÇÃO BÁSICA PARA IDOSOS
+VERSÃO PROFISSIONAL
+HTML + CSS + JAVASCRIPT
+========================================
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Educação Básica</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="phone">
+
+<!-- HOME -->
+<div class="screen active"
+id="home">
+
+<div class="header">
+
+<div class="home-user">
+
+<div class="avatar">
+👵
+</div>
+
+<div>
+<h2>Olá, Maria!</h2>
+<p>Continue aprendendo hoje 💙</p>
+</div>
+
+</div>
+
+<div class="big-title">
+
+<h1>Educação<br>BÁSICA</h1>
+
+<span>para idosos</span>
+
+<p>Aprender é continuar avançando sempre!</p>
+
+</div>
+
+</div>
+
+<div class="content">
+
+<div class="card green"
+onclick="openScreen('modules')">
+
+<i class="fa-solid fa-book-open"></i>
+
+<div>
+<h3>Módulos</h3>
+<p>Escolha o que aprender</p>
+</div>
+
+</div>
+
+<div class="card blue"
+onclick="openScreen('quiz')">
+
+<i class="fa-solid fa-clipboard-check"></i>
+
+<div>
+<h3>Testes</h3>
+<p>Teste seus conhecimentos</p>
+</div>
+
+</div>
+
+<div class="card orange"
+onclick="openScreen('progress')">
+
+<i class="fa-solid fa-chart-column"></i>
+
+<div>
+<h3>Progresso</h3>
+<p>Veja seu desempenho</p>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<!-- MODULOS -->
+<div class="screen"
+id="modules">
+
+<div class="header">
+
+<div class="header-top">
+
+<i class="fa-solid fa-arrow-left back"
+onclick="openScreen('home')"></i>
+
+<div>
+
+<h1>Módulos</h1>
+<p>Escolha uma matéria</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="content">
+
+<div class="item"
+onclick="openLesson('Português','A E I O U','Aprendendo vogais')">
+
+<h3>Português</h3>
+<p>Leitura e escrita</p>
+
+</div>
+
+<div class="item"
+onclick="openLesson('Matemática','2 + 2 = 4','Contas básicas')">
+
+<h3>Matemática</h3>
+<p>Números e cálculos</p>
+
+</div>
+
+<div class="item"
+onclick="openLesson('História','📜','História do Brasil')">
+
+<h3>História</h3>
+<p>Nosso passado</p>
+
+</div>
+
+<div class="item"
+onclick="openLesson('Educação Financeira','💰','Economizando dinheiro')">
+
+<h3>Educação Financeira</h3>
+<p>Cuidados com dinheiro</p>
+
+</div>
+
+<div class="item"
+onclick="openLesson('Ciências','🌎','Conhecendo o planeta')">
+
+<h3>Ciências</h3>
+<p>Natureza e saúde</p>
+
+</div>
+
+</div>
+</div>
+
+<!-- AULA -->
+<div class="screen"
+id="lesson">
+
+<div class="header">
+
+<div class="header-top">
+
+<i class="fa-solid fa-arrow-left back"
+onclick="openScreen('modules')"></i>
+
+<div>
+
+<h1 id="lessonTitle"></h1>
+
+<p id="lessonSubtitle"></p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="content">
+
+<div class="lesson-box">
+
+<h2 id="lessonText"></h2>
+
+<div class="lesson-big"
+id="lessonBig"></div>
+
+<button class="audio-btn"
+onclick="speakLesson()">
+
+🔊 Ouvir Aula
+
+</button>
+
+</div>
+
+</div>
+</div>
+
+<!-- QUIZ -->
+<div class="screen"
+id="quiz">
+
+<div class="header">
+
+<div class="header-top">
+
+<i class="fa-solid fa-arrow-left back"
+onclick="openScreen('home')"></i>
+
+<div>
+
+<h1>Avaliação</h1>
+
+<p>Teste seus conhecimentos</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="content">
+
+<h2 id="questionText"></h2>
+
+<div class="quiz-box"
+id="quizOptions"></div>
+
+<div class="feedback correct-feedback"
+id="correctBox">
+
+✅ Resposta correta!
+
+</div>
+
+<div class="feedback wrong-feedback"
+id="wrongBox">
+
+❌ Resposta errada!
+
+</div>
+
+<button class="audio-btn"
+onclick="nextQuestion()">
+
+Próxima Pergunta
+
+</button>
+
+</div>
+</div>
+
+<!-- PROGRESSO -->
+<div class="screen"
+id="progress">
+
+<div class="header">
+
+<div class="header-top">
+
+<i class="fa-solid fa-arrow-left back"
+onclick="openScreen('home')"></i>
+
+<div>
+
+<h1>Meu Progresso</h1>
+
+<p>Acompanhe sua evolução</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="content">
+
+<div class="progress">
+
+<h3>Português - 80%</h3>
+
+<div class="progress-bar">
+<div class="progress-fill"
+style="width:80%"></div>
+</div>
+
+</div>
+
+<div class="progress">
+
+<h3>Matemática - 65%</h3>
+
+<div class="progress-bar">
+<div class="progress-fill"
+style="width:65%"></div>
+</div>
+
+</div>
+
+<div class="progress">
+
+<h3>História - 50%</h3>
+
+<div class="progress-bar">
+<div class="progress-fill"
+style="width:50%"></div>
+</div>
+
+</div>
+
+<h3>🏅 Medalhas</h3>
+
+<div class="badges">
+
+<div class="badge">
+⭐ Primeira Aula
+</div>
+
+<div class="badge">
+📘 Português Completo
+</div>
+
+<div class="badge">
+🧠 10 respostas corretas
+</div>
+
+</div>
+
+</div>
+</div>
+
+<!-- PERFIL -->
+<div class="screen"
+id="profile">
+
+<div class="header">
+
+<h1>Meu Perfil</h1>
+
+<p>Informações do usuário</p>
+
+</div>
+
+<div class="content">
+
+<div class="item">
+<h3>👤 Nome</h3>
+<p>Maria da Silva</p>
+</div>
+
+<div class="item">
+<h3>🎂 Idade</h3>
+<p>68 anos</p>
+</div>
+
+<div class="item"
+onclick="openScreen('settings')">
+
+<h3>⚙ Configurações</h3>
+
+</div>
+
+</div>
+</div>
+
+<!-- CONFIG -->
+<div class="screen"
+id="settings">
+
+<div class="header">
+
+<div class="header-top">
+
+<i class="fa-solid fa-arrow-left back"
+onclick="openScreen('profile')"></i>
+
+<div>
+
+<h1>Configurações</h1>
+
+<p>Preferências do aplicativo</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="content">
+
+<div class="setting">
+
+<span>🌙 Modo Escuro</span>
+
+<input type="checkbox"
+id="darkMode">
+
+</div>
+
+<div class="setting">
+
+<span>🔊 Som</span>
+
+<input type="checkbox"
+checked>
+
+</div>
+
+<div class="setting">
+
+<span>🔔 Notificações</span>
+
+<input type="checkbox"
+checked>
+
+</div>
+
+<div class="setting">
+
+<span>🔠 Fonte Grande</span>
+
+<button onclick="increaseFont()">
+
+A+
+
+</button>
+
+</div>
+
+</div>
+</div>
+
+<!-- NAVBAR -->
+<div class="navbar">
+
+<div class="nav-item active-nav"
+onclick="openScreen('home')">
+
+<i class="fa-solid fa-house"></i>
+
+<div>Início</div>
+
+</div>
+
+<div class="nav-item"
+onclick="openScreen('progress')">
+
+<i class="fa-solid fa-chart-column"></i>
+
+<div>Progresso</div>
+
+</div>
+
+<div class="nav-item"
+onclick="openScreen('quiz')">
+
+<i class="fa-solid fa-clipboard-check"></i>
+
+<div>Testes</div>
+
+</div>
+
+<div class="nav-item"
+onclick="openScreen('profile')">
+
+<i class="fa-solid fa-user"></i>
+
+<div>Perfil</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* =========================
+TELAS
+========================= */
+
+function openScreen(screenId){
+
+document.querySelectorAll('.screen')
+.forEach(screen=>{
+screen.classList.remove('active');
+});
+
+document.getElementById(screenId)
+.classList.add('active');
+
+}
+
+/* =========================
+AULAS
+========================= */
+
+function openLesson(title,big,subtitle){
+
+openScreen('lesson');
+
+document.getElementById('lessonTitle')
+.innerText = title;
+
+document.getElementById('lessonSubtitle')
+.innerText = subtitle;
+
+document.getElementById('lessonText')
+.innerText = subtitle;
+
+document.getElementById('lessonBig')
+.innerText = big;
+
+speakLesson();
+
+}
+
+/* =========================
+VOZ
+========================= */
+
+function speakLesson(){
+
+const text =
+document.getElementById('lessonText')
+.innerText;
+
+const speech =
+new SpeechSynthesisUtterance(text);
+
+speech.lang = 'pt-BR';
+
+window.speechSynthesis.speak(speech);
+
+}
+
+/* =========================
+QUIZ
+========================= */
+
+const questions = [
+
+{
+question:
+"Quanto é 5 + 5?",
+
+options:["10","8","6","12"],
+
+correct:"10"
+},
+
+{
+question:
+"Qual palavra está correta?",
+
+options:[
+"Casa",
+"Kaza",
+"Kassa",
+"Caza"
+],
+
+correct:"Casa"
+},
+
+{
+question:
+"Quem descobriu o Brasil?",
+
+options:[
+"Pedro Álvares Cabral",
+"Dom Pedro",
+"Tiradentes",
+"Getúlio Vargas"
+],
+
+correct:"Pedro Álvares Cabral"
+}
+
+];
+
+let currentQuestion = 0;
+
+function loadQuestion(){
+
+const q = questions[currentQuestion];
+
+document.getElementById('questionText')
+.innerText = q.question;
+
+const container =
+document.getElementById('quizOptions');
+
+container.innerHTML = "";
+
+document.getElementById('correctBox')
+.style.display = "none";
+
+document.getElementById('wrongBox')
+.style.display = "none";
+
+q.options.forEach(option=>{
+
+const div =
+document.createElement('div');
+
+div.classList.add('option');
+
+div.innerText = option;
+
+div.onclick = ()=>checkAnswer(div,option);
+
+container.appendChild(div);
+
+});
+
+}
+
+function checkAnswer(element,answer){
+
+const q = questions[currentQuestion];
+
+document.querySelectorAll('.option')
+.forEach(option=>{
+option.style.pointerEvents = "none";
+});
+
+if(answer === q.correct){
+
+element.classList.add('correct');
+
+document.getElementById('correctBox')
+.style.display = 'block';
+
+savePoints();
+
+}
+else{
+
+element.classList.add('wrong');
+
+document.getElementById('wrongBox')
+.style.display = 'block';
+
+document.getElementById('wrongBox')
+.innerHTML =
+"❌ Resposta errada!<br><br>✅ Correta: <b>"
++ q.correct + "</b>";
+
+document.querySelectorAll('.option')
+.forEach(option=>{
+
+if(option.innerText === q.correct){
+
+option.classList.add('correct');
+
+}
+
+});
+
+}
+
+}
+
+function nextQuestion(){
+
+currentQuestion++;
+
+if(currentQuestion >= questions.length){
+
+currentQuestion = 0;
+
+alert("🎉 Avaliação concluída!");
+
+openScreen('progress');
+
+}
+
+loadQuestion();
+
+}
+
+/* =========================
+PONTOS
+========================= */
+
+let points =
+localStorage.getItem('points') || 0;
+
+function savePoints(){
+
+points++;
+
+localStorage.setItem('points',points);
+
+}
+
+/* =========================
+FONTE
+========================= */
+
+function increaseFont(){
+
+document.body.style.fontSize = "18px";
+
+}
+
+/* =========================
+DARK MODE
+========================= */
+
+document
+.getElementById('darkMode')
+
+.addEventListener('change',function(){
+
+document.body.classList.toggle('dark');
+
+});
+
+/* =========================
+INICIAR
+========================= */
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,434 @@
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#e9edf5;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+transition:.3s;
+}
+
+/* =========================
+APP
+========================= */
+
+.phone{
+width:390px;
+height:844px;
+background:#fff;
+border-radius:35px;
+overflow:hidden;
+position:relative;
+box-shadow:0 20px 45px rgba(0,0,0,.15);
+}
+
+/* =========================
+TELAS
+========================= */
+
+.screen{
+display:none;
+height:100%;
+animation:fade .4s;
+}
+
+.active{
+display:block;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateX(15px);
+}
+to{
+opacity:1;
+transform:translateX(0);
+}
+}
+
+/* =========================
+HEADER
+========================= */
+
+.header{
+background:linear-gradient(180deg,#0057d9,#0078ff);
+padding:20px;
+color:white;
+border-bottom-left-radius:40px;
+}
+
+.header-top{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.back{
+font-size:22px;
+cursor:pointer;
+}
+
+.header h1{
+font-size:28px;
+}
+
+.header p{
+font-size:14px;
+opacity:.9;
+}
+
+/* =========================
+HOME
+========================= */
+
+.home-user{
+display:flex;
+align-items:center;
+gap:15px;
+margin-top:10px;
+}
+
+.avatar{
+width:65px;
+height:65px;
+background:white;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:28px;
+color:#0078ff;
+}
+
+.big-title{
+margin-top:20px;
+text-align:center;
+}
+
+.big-title h1{
+font-size:42px;
+line-height:42px;
+}
+
+.big-title span{
+background:#24c04e;
+padding:6px 18px;
+border-radius:20px;
+display:inline-block;
+margin-top:10px;
+}
+
+.big-title p{
+margin-top:15px;
+font-size:14px;
+}
+
+/* =========================
+CONTENT
+========================= */
+
+.content{
+padding:18px;
+overflow-y:auto;
+height:calc(100% - 190px);
+}
+
+/* =========================
+CARDS
+========================= */
+
+.card{
+padding:18px;
+border-radius:20px;
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:16px;
+color:white;
+cursor:pointer;
+transition:.3s;
+}
+
+.card:hover{
+transform:scale(1.02);
+}
+
+.card i{
+width:60px;
+height:60px;
+border-radius:16px;
+background:rgba(255,255,255,.2);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+}
+
+.card h3{
+font-size:22px;
+}
+
+.card p{
+font-size:13px;
+}
+
+.green{
+background:#24c04e;
+}
+
+.blue{
+background:#006eff;
+}
+
+.red{
+background:#ef3131;
+}
+
+.orange{
+background:#ff9900;
+}
+
+/* =========================
+LISTA
+========================= */
+
+.item{
+background:white;
+border:2px solid #ddd;
+padding:16px;
+border-radius:16px;
+margin-bottom:14px;
+cursor:pointer;
+transition:.3s;
+}
+
+.item:hover{
+border-color:#0078ff;
+transform:translateY(-2px);
+}
+
+.item h3{
+color:#0078ff;
+}
+
+/* =========================
+AULA
+========================= */
+
+.lesson-box{
+background:#fafafa;
+border:2px solid #ddd;
+border-radius:20px;
+padding:20px;
+text-align:center;
+}
+
+.lesson-big{
+font-size:55px;
+font-weight:700;
+margin:20px 0;
+color:#0078ff;
+}
+
+.audio-btn{
+background:#24c04e;
+color:white;
+border:none;
+padding:14px 20px;
+border-radius:14px;
+font-size:16px;
+cursor:pointer;
+margin-top:15px;
+}
+
+/* =========================
+QUIZ
+========================= */
+
+.quiz-box{
+margin-top:20px;
+}
+
+.option{
+padding:14px;
+background:#f3f3f3;
+border-radius:14px;
+margin-bottom:12px;
+text-align:center;
+font-size:20px;
+cursor:pointer;
+transition:.2s;
+border:2px solid transparent;
+}
+
+.option:hover{
+background:#0078ff;
+color:white;
+}
+
+.correct{
+background:#24c04e !important;
+color:white;
+}
+
+.wrong{
+background:#ef3131 !important;
+color:white;
+}
+
+.feedback{
+display:none;
+margin-top:20px;
+padding:15px;
+border-radius:14px;
+font-weight:600;
+}
+
+.correct-feedback{
+background:#d7ffd7;
+color:#138c13;
+}
+
+.wrong-feedback{
+background:#ffd9d9;
+color:#b00000;
+}
+
+/* =========================
+PROGRESSO
+========================= */
+
+.progress{
+margin-bottom:22px;
+}
+
+.progress-bar{
+width:100%;
+height:12px;
+background:#ddd;
+border-radius:20px;
+overflow:hidden;
+margin-top:8px;
+}
+
+.progress-fill{
+height:100%;
+background:#24c04e;
+animation:grow 2s;
+}
+
+@keyframes grow{
+from{
+width:0;
+}
+}
+
+/* =========================
+MEDALHAS
+========================= */
+
+.badges{
+display:flex;
+gap:12px;
+margin-top:20px;
+flex-wrap:wrap;
+}
+
+.badge{
+background:#fff7d6;
+padding:12px;
+border-radius:14px;
+font-size:14px;
+}
+
+/* =========================
+CONFIG
+========================= */
+
+.setting{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px;
+border-bottom:1px solid #eee;
+}
+
+/* =========================
+NAVBAR
+========================= */
+
+.navbar{
+position:absolute;
+bottom:0;
+width:100%;
+display:flex;
+justify-content:space-around;
+padding:12px 0;
+background:white;
+border-top:1px solid #ddd;
+}
+
+.nav-item{
+text-align:center;
+font-size:12px;
+color:#666;
+cursor:pointer;
+}
+
+.nav-item i{
+font-size:20px;
+margin-bottom:4px;
+}
+
+.active-nav{
+color:#0078ff;
+}
+
+/* =========================
+DARK MODE
+========================= */
+
+.dark body{
+background:#111;
+}
+
+.dark .phone{
+background:#1e1e1e;
+color:white;
+}
+
+.dark .item{
+background:#2b2b2b;
+border-color:#444;
+color:white;
+}
+
+.dark .lesson-box{
+background:#2b2b2b;
+border-color:#444;
+}
+
+.dark .option{
+background:#333;
+color:white;
+}
+
+.dark .navbar{
+background:#222;
+}
+
+.dark .setting{
+border-color:#333;
+}
