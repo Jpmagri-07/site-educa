@@ -65,6 +65,8 @@ Projeto desenvolvido em grupo como atividade escolar.
 - João Pedro Magri Martins | GitHub: Jpmagri-07  
 - ***** ***** | GitHub: ********  
 
+- Fernando Takao Watanabe | GitHub: FernandoTakao
+
 ---
 
 ## 🚧 Status do Projeto
