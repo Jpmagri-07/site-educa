@@ -1,10 +1,10 @@
+<div align="center">
+
 # 📘 Ensina Fácil – Protótipo Educacional
 
-<h1 align="center">
-Ensina Fácil  
-<img src="imgs/logo.png" alt="Logo do Ensina Fácil" width="90">
-</h1>
+<img src="imgs/logo-app.png" alt="Logo do Ensina Fácil" width="90">
 
+</div>
 ---
 
 ## 📌 Sobre o Projeto
@@ -63,7 +63,7 @@ O projeto foi pensado para facilitar o uso por idosos:
 Projeto desenvolvido em grupo como atividade escolar.
 
 - João Pedro Magri Martins | GitHub: Jpmagri-07  
-- Miguel Perino | GitHub: MiguelPerino  
+- ***** ***** | GitHub: ********  
 
 ---
 
