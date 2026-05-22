@@ -6,10 +6,13 @@ function openScreen(screenId){
 
 document.querySelectorAll('.screen')
 .forEach(screen=>{
+
 screen.classList.remove('active');
+
 });
 
-document.getElementById(screenId)
+document
+.getElementById(screenId)
 .classList.add('active');
 
 }
@@ -18,56 +21,106 @@ document.getElementById(screenId)
 AULAS
 ========================= */
 
-function openLesson(title,big,subtitle){
+function openLesson(
+title,
+big,
+subtitle
+){
 
 openScreen('lesson');
 
-document.getElementById('lessonTitle')
+document
+.getElementById('lessonTitle')
 .innerText = title;
 
-document.getElementById('lessonSubtitle')
+document
+.getElementById('lessonSubtitle')
 .innerText = subtitle;
 
-document.getElementById('lessonText')
+document
+.getElementById('lessonText')
 .innerText = subtitle;
 
-document.getElementById('lessonBig')
+document
+.getElementById('lessonBig')
 .innerText = big;
 
-speakLesson();
+/* áudio automático */
+speakLesson(
+title + ". " + subtitle
+);
 
 }
 
 /* =========================
-VOZ
+ÁUDIO MELHORADO
 ========================= */
 
-function speakLesson(){
+function speakLesson(customText = null){
+
+/* limpa áudio anterior */
+window.speechSynthesis.cancel();
 
 const text =
-document.getElementById('lessonText')
-.innerText;
+customText ||
+document
+.getElementById('lessonText')
+?.innerText ||
+"";
+
+if(!text) return;
 
 const speech =
 new SpeechSynthesisUtterance(text);
 
+/* idioma */
 speech.lang = 'pt-BR';
 
-window.speechSynthesis.speak(speech);
+/* velocidade */
+speech.rate = 0.9;
+
+/* voz suave */
+speech.pitch = 1;
+
+speech.volume = 1;
+
+/* tenta usar voz PT */
+const voices =
+window.speechSynthesis.getVoices();
+
+const ptVoice =
+voices.find(voice =>
+voice.lang.includes('pt')
+);
+
+if(ptVoice){
+
+speech.voice = ptVoice;
+
+}
+
+window
+.speechSynthesis
+.speak(speech);
 
 }
 
 /* =========================
-QUIZ
+QUESTÕES
 ========================= */
 
 const questions = [
 
 {
 question:
-"Quanto é 5 + 5?",
+"Quanto é cinco mais cinco?",
 
-options:["10","8","6","12"],
+options:[
+"10",
+"8",
+"6",
+"12"
+],
 
 correct:"10"
 },
@@ -97,29 +150,67 @@ options:[
 "Getúlio Vargas"
 ],
 
-correct:"Pedro Álvares Cabral"
+correct:
+"Pedro Álvares Cabral"
+},
+
+{
+question:
+"Quanto é dois mais três?",
+
+options:[
+"5",
+"7",
+"9",
+"4"
+],
+
+correct:"5"
+},
+
+{
+question:
+"Qual número vem depois do nove?",
+
+options:[
+"10",
+"11",
+"12",
+"8"
+],
+
+correct:"10"
 }
 
 ];
 
 let currentQuestion = 0;
 
+/* =========================
+CARREGAR QUESTÃO
+========================= */
+
 function loadQuestion(){
 
-const q = questions[currentQuestion];
+const q =
+questions[currentQuestion];
 
-document.getElementById('questionText')
+document
+.getElementById('questionText')
 .innerText = q.question;
 
 const container =
-document.getElementById('quizOptions');
+document
+.getElementById('quizOptions');
 
 container.innerHTML = "";
 
-document.getElementById('correctBox')
+document
+.getElementById('correctBox')
 .style.display = "none";
 
-document.getElementById('wrongBox')
+document
+.getElementById('wrongBox')
 .style.display = "none";
 
 q.options.forEach(option=>{
@@ -131,29 +222,55 @@ div.classList.add('option');
 
 div.innerText = option;
 
-div.onclick = ()=>checkAnswer(div,option);
+div.onclick =
+()=>checkAnswer(div,option);
 
 container.appendChild(div);
 
 });
 
+/* leitura automática */
+speakLesson(q.question);
+
 }
 
-function checkAnswer(element,answer){
+/* =========================
+VERIFICAR RESPOSTA
+========================= */
 
-const q = questions[currentQuestion];
+function checkAnswer(
+element,
+answer
+){
 
-document.querySelectorAll('.option')
+const q =
+questions[currentQuestion];
+
+document
+.querySelectorAll('.option')
 .forEach(option=>{
-option.style.pointerEvents = "none";
+
+option.style.pointerEvents =
+"none";
+
 });
 
 if(answer === q.correct){
 
 element.classList.add('correct');
 
-document.getElementById('correctBox')
+document
+.getElementById('correctBox')
 .style.display = 'block';
+
+document
+.getElementById('correctBox')
+.innerHTML =
+"✅ Muito bem Lindalva!";
+
+speakLesson(
+"Parabéns Lindalva! Você acertou!"
+);
 
 savePoints();
 
@@ -162,15 +279,24 @@ else{
 
 element.classList.add('wrong');
 
-document.getElementById('wrongBox')
+document
+.getElementById('wrongBox')
 .style.display = 'block';
 
-document.getElementById('wrongBox')
+document
+.getElementById('wrongBox')
 .innerHTML =
 "❌ Resposta errada!<br><br>✅ Correta: <b>"
-+ q.correct + "</b>";
++ q.correct +
+"</b>";
 
-document.querySelectorAll('.option')
+speakLesson(
+"Não foi dessa vez Lindalva. A resposta correta é "
++ q.correct
+);
+
+document
+.querySelectorAll('.option')
 .forEach(option=>{
 
 if(option.innerText === q.correct){
@@ -185,15 +311,28 @@ option.classList.add('correct');
 
 }
 
+/* =========================
+PRÓXIMA QUESTÃO
+========================= */
+
 function nextQuestion(){
 
 currentQuestion++;
 
-if(currentQuestion >= questions.length){
+if(
+currentQuestion >=
+questions.length
+){
 
 currentQuestion = 0;
 
-alert("🎉 Avaliação concluída!");
+alert(
+"🎉 Parabéns Lindalva! Você concluiu a avaliação!"
+);
+
+speakLesson(
+"Parabéns Lindalva! Você concluiu a avaliação."
+);
 
 openScreen('progress');
 
@@ -214,33 +353,80 @@ function savePoints(){
 
 points++;
 
-localStorage.setItem('points',points);
+localStorage
+.setItem('points',points);
 
 }
 
 /* =========================
-FONTE
+FONTE GRANDE
 ========================= */
 
 function increaseFont(){
 
-document.body.style.fontSize = "18px";
+document.body.style.fontSize =
+"18px";
+
+speakLesson(
+"Fonte aumentada."
+);
 
 }
 
 /* =========================
-DARK MODE
+INICIAR APP
 ========================= */
 
-document
-.getElementById('darkMode')
+window.onload = function(){
 
-.addEventListener('change',function(){
+/* inicia quiz */
+loadQuestion();
 
-document.body.classList.toggle('dark');
+/* dark mode */
+
+const darkMode =
+document.getElementById('darkMode');
+
+if(darkMode){
+
+darkMode.addEventListener(
+'change',
+function(){
+
+document.body
+.classList.toggle('dark');
+
+if(
+document.body.classList.contains('dark')
+){
+
+speakLesson(
+"Modo escuro ativado."
+);
+
+}
+else{
+
+speakLesson(
+"Modo claro ativado."
+);
+
+}
 
 });
 
-/* =========================
-INICIAR
-========================= *Agradecemos por utilizar nossos serviços! Esperamos trabalhar com você novamente em breve.
+}
+
+/* boas-vindas */
+
+window.speechSynthesis.cancel();
+
+setTimeout(()=>{
+
+speakLesson(
+"Olá Lindalva! Seja bem-vinda ao aplicativo Educação Básica."
+);
+
+},1200);
+
+};
