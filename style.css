@@ -198,9 +198,9 @@ CONTENT
 ========================= */
 .content{
 padding:18px;
-padding-bottom:100px;
+padding-bottom:120px;
 overflow-y:auto;
-height:calc(100% - 400px);
+height:calc(100% - 180px);
 }
 .home-banner{
 width:100%;
@@ -346,10 +346,16 @@ box-shadow:0 12px 25px rgba(0,0,0,.12);
 color:#0057d9;
 font-size:20px;
 font-weight:700;
+.dark .item h3{
+color:#60a5fa;
+}
 }
 .item p{
 color:#666;
 font-size:14px;
+.dark .item p{
+color:#cbd5e1;
+}
 }
 
 /* =========================
@@ -464,7 +470,7 @@ PROGRESSO
 ========================= */
 
 .progress{
-margin-bottom:28px;
+margin-bottom:20px;
 }
 
 .progress-bar{
@@ -496,11 +502,10 @@ MEDALHAS
 
 .badges{
 display:flex;
-gap:12px;
-margin-top:20px;
+gap:10px;
+margin-top:15px;
 flex-wrap:wrap;
 }
-
 .badge{
 background:#fff7d6;
 padding:12px;
@@ -601,11 +606,15 @@ color:white;
 .dark .navbar{
 background:#222;
 }
-
-.dark .setting{
-border-color:#333;
+.dark .content{
+background:#1e1e1e;
 }
 
+.dark .setting{
+background:#2b2b2b;
+border-color:#444;
+color:white;
+}
 /* =========================
 RESPONSIVIDADE
 ========================= */
@@ -710,8 +719,110 @@ font-size:70px;
 font-size:30px;
 }
 .quiz-content{
-overflow-y:hidden;
+
 display:flex;
 flex-direction:column;
 justify-content:flex-start;
+}
+.dark .setting{
+background:linear-gradient(
+135deg,
+#2b2b2b,
+#353535
+);
+color:white;
+box-shadow:0 5px 15px rgba(0,0,0,.25);
+}
+.dark .badge{
+background:linear-gradient(
+135deg,
+#2f2a1f,
+#3a3324
+);
+color:white;
+border-left:5px solid #fbbf24;
+box-shadow:0 5px 15px rgba(0,0,0,.3);
+}
+.dark .progress-bar{
+background:#3a3a3a;
+}
+/* =========================
+ALTO CONTRASTE
+========================= */
+
+.high-contrast{
+background:black !important;
+color:white !important;
+}
+
+.high-contrast .phone{
+background:black;
+color:white;
+}
+
+.high-contrast .item{
+background:black;
+color:white;
+border:2px solid yellow;
+}
+
+.high-contrast .lesson-box{
+background:black;
+color:white;
+border:2px solid yellow;
+}
+
+.high-contrast .setting{
+background:black;
+color:white;
+border:2px solid yellow;
+}
+
+.high-contrast .navbar{
+background:black;
+border-top:2px solid yellow;
+}
+
+.high-contrast .card{
+border:2px solid yellow;
+}
+
+.high-contrast .option{
+background:black;
+color:white;
+border:2px solid yellow;
+}
+
+.high-contrast .audio-btn{
+border:2px solid yellow;
+}
+.high-contrast .badge{
+background:black;
+color:white;
+border:2px solid yellow;
+box-shadow:none;
+}
+.high-contrast .progress-bar{
+background:#333;
+}
+
+.high-contrast .progress-fill{
+background:yellow;
+}
+/* =========================
+LEITURA FACILITADA
+========================= */
+
+.reading-mode{
+
+line-height:2;
+letter-spacing:1px;
+word-spacing:3px;
+
+}
+
+.reading-mode p{
+
+line-height:2;
+
 }
