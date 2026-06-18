@@ -363,6 +363,32 @@ FONTE GRANDE
 ========================= */
 
 function increaseFont(){
+    function toggleFocusMode(){
+
+document.body.classList.toggle(
+'focus-mode'
+);
+
+if(
+document.body.classList.contains(
+'focus-mode'
+)
+){
+
+speakLesson(
+"Modo foco ativado."
+);
+
+}
+else{
+
+speakLesson(
+"Modo foco desativado."
+);
+
+}
+
+}
 
 document.body.style.fontSize =
 "18px";
