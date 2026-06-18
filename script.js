@@ -323,6 +323,10 @@ if(
 currentQuestion >=
 questions.length
 ){
+    localStorage.setItem(
+'certificado',
+'true'
+);
 
 currentQuestion = 0;
 
@@ -450,9 +454,73 @@ window.speechSynthesis.cancel();
 setTimeout(()=>{
 
 speakLesson(
-"Olá Lindalva! Seja bem-vinda ao aplicativo Educação Básica."
+"Olá Lindalva! Seja bem-vinda ao aplicativo Ensina Fácil."
 );
 
 },1200);
+window.addEventListener('load', ()=>{
 
+if(
+localStorage.getItem('certificado')
+=== 'true'
+){
+
+const badge =
+document.getElementById(
+'certificateBadge'
+);
+
+if(badge){
+
+badge.style.display = 'block';
+
+}
+
+}
+
+});
 };
+function toggleContrast(){
+
+document.body.classList.toggle(
+'high-contrast'
+);
+
+}
+function setAccessibility(type){
+
+if(type === 'vision'){
+
+increaseFont();
+
+alert(
+'Modo Baixa Visão ativado!'
+);
+
+}
+
+if(type === 'reading'){
+
+document.body.classList.toggle(
+'reading-mode'
+);
+
+alert(
+'Leitura Facilitada ativada!'
+);
+
+}
+
+if(type === 'audio'){
+
+speakLesson(
+'Modo de áudio preferencial ativado.'
+);
+
+alert(
+'Modo Áudio ativado!'
+);
+
+}
+
+}
